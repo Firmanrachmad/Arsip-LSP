@@ -21,13 +21,20 @@
                   </tr>
                </thead>
                <tbody>
+               @php $i=1 @endphp
+			      @foreach($arsip as $a)
                   <tr>
-                     <td>asdasd</td>
-                     <td>asdasdas</td>
-                     <td>asdasdasd</td>
-                     <td>2011/04/25</td>
-                     <td>action</td>
+                     <td>{{$a->nomor}}</td>
+                     <td>{{$a->kategori}}</td>
+                     <td>{{$a->judul}}</td>
+                     <td>{{$a->created_at}}</td>
+                     <td>
+                        <a class="btn btn-danger" href="#">Hapus</a>
+                        <a class="btn btn-warning" href="#">Unduh</a>
+                        <a class="btn btn-primary" href="#">Lihat >></a>
+                     </td>
                   </tr>
+               @endforeach   
                </tbody>
             </table>
          </div>

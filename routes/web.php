@@ -21,4 +21,6 @@ Route::get('/', [ArsipController::class, 'index']);
 
 Route::get('/about', [AboutController::class, 'index']);
 Route::get('/arsip', [ArsipController::class, 'index']);
-Route::get('/add', [ArsipController::class, 'add']);
+Route::get('/add', [ArsipController::class, 'create']);
+Route::post('/store', [ArsipController::class, 'store']);
+Route::post('/show', [ArsipController::class, 'show']);
