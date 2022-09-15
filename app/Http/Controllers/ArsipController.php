@@ -10,4 +10,9 @@ class ArsipController extends Controller
     {
         return view('arsip.index');
     }
+
+    public function add()
+    {
+        return view('arsip.add');
+    }
 }
