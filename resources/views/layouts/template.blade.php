@@ -20,6 +20,9 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('admins/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
+    <!-- Custom styles for this page -->
+    <link href="{{ asset('admins/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+
 </head>
 
 <body id="page-top">
@@ -48,7 +51,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="arsip">
                     <i class="fas fa-fw fa-file"></i>
                     <span>Arsip</span></a>
             </li>
@@ -94,7 +97,6 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
                     </div>
                 </div>
             </footer>
@@ -142,11 +144,18 @@
     <script src="{{ asset('admins/js/sb-admin-2.min.js') }}"></script>
 
     <!-- Page level plugins -->
-    <script src="{{ asset('admins/vendor/chart.js') }}/Chart.min.js') }}"></script>
+    <script src="{{ asset('admins/vendor/chart.js/Chart.min.js') }}"></script>
 
     <!-- Page level custom scripts -->
     <script src="{{ asset('admins/js/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('admins/js/demo/chart-pie-demo.js') }}"></script>
+
+    <!-- Page level plugins -->
+    <script src="{{ asset('admins/vendor/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('admins/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="{{ asset('admins/js/demo/datatables-demo.js') }}"></script>
 
 </body>
 

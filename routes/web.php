@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ArsipController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +16,8 @@ use App\Http\Controllers\AboutController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [ArsipController::class, 'index']);
+
 
 Route::get('/about', [AboutController::class, 'index']);
+Route::get('/arsip', [ArsipController::class, 'index']);
