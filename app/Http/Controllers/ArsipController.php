@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
+use Response;
 use App\Models\Arsip;
+use Storage;
+use DB;
 
 class ArsipController extends Controller
 {
@@ -37,9 +40,10 @@ class ArsipController extends Controller
         return redirect('arsip')->with('success','Data berhasil disimpan.');
     }
 
-    public function show(Arsip $arsip)
+    public function show($id)
     {
-        return view('arsip.show',compact('arsip'));
+        $arsip = Arsip::find($id);
+        return view('arsip.lihat',['arsip'=>$arsip]);
     }
 
     public function edit(Arsip $arsip)
@@ -58,12 +62,31 @@ class ArsipController extends Controller
         
         $arsip->fill($request->post())->save();
 
-        return redirect()->route('arsip.index')->with('success','Arsip telah diupdate.');
+        return redirect('arsip')->with('success','Arsip telah diupdate.');
     }
 
-    public function destroy(Arsip $arsip)
+    public function destroy($id)
     {
+        $arsip = Arsip::find($id);
         $arsip->delete();
-        return redirect()->route('arsip.index')->with('success','Arsip telah dihapus.');
+        return redirect('arsip');
+    }
+
+    public function download($id)
+    {
+        // return Storage::disk('public')->download($dokumen);
+        $pdf = DB::table('arsips')->where('id', $id)->value('dokumen');
+
+        $file = public_path(). "\storage\document/".$pdf;
+
+        $headers = array(
+            'Content-Type: application/pdf',
+        );
+
+        return Response::download($file, $pdf, $headers);
+    }
+
+    public function backToPreviousURL(){
+        return Redirect::to(url()->previous());
     }
 }

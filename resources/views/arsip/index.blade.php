@@ -29,9 +29,9 @@
                      <td>{{$a->judul}}</td>
                      <td>{{$a->created_at}}</td>
                      <td>
-                        <a class="btn btn-danger" href="#">Hapus</a>
-                        <a class="btn btn-warning" href="#">Unduh</a>
-                        <a class="btn btn-primary" href="#">Lihat >></a>
+                        <a class="btn btn-danger" href="destroy/{{$a->id}}" onclick="return confirm('Apakah anda yakin ingin menghapus arsip surat ini?')">Hapus</a>
+                        <a class="btn btn-warning" href="download/{{$a->id}}">Unduh</a>
+                        <a class="btn btn-primary" href="show/{{$a->id}}">Lihat >></a>
                      </td>
                   </tr>
                @endforeach   

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Redirect;
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArsipController;
@@ -23,4 +24,10 @@ Route::get('/about', [AboutController::class, 'index']);
 Route::get('/arsip', [ArsipController::class, 'index']);
 Route::get('/add', [ArsipController::class, 'create']);
 Route::post('/store', [ArsipController::class, 'store']);
-Route::post('/show', [ArsipController::class, 'show']);
+Route::get('/show/{id}', [ArsipController::class, 'show']);
+Route::get('/destroy/{id}', [ArsipController::class, 'destroy']);
+Route::get('/show/download/{id}', [ArsipController::class, 'download']);
+Route::get('/download/{id}', [ArsipController::class, 'download']);
+Route::get('/redirect-to-previous-url', function(){
+    return Redirect::to(url()->previous());
+});
