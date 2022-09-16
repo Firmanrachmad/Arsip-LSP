@@ -26,6 +26,7 @@ Route::get('/add', [ArsipController::class, 'create']);
 Route::post('/store', [ArsipController::class, 'store']);
 Route::get('/show/{id}', [ArsipController::class, 'show']);
 Route::get('/destroy/{id}', [ArsipController::class, 'destroy']);
+Route::get('/show/edit/{id}', [ArsipController::class, 'edit']);
 Route::get('/show/download/{id}', [ArsipController::class, 'download']);
 Route::get('/download/{id}', [ArsipController::class, 'download']);
 Route::get('/redirect-to-previous-url', function(){

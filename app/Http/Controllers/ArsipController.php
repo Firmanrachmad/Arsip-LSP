@@ -74,7 +74,6 @@ class ArsipController extends Controller
 
     public function download($id)
     {
-        // return Storage::disk('public')->download($dokumen);
         $pdf = DB::table('arsips')->where('id', $id)->value('dokumen');
 
         $file = public_path(). "\storage\document/".$pdf;
